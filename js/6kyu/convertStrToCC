@@ -1,0 +1,42 @@
+// Complete the method/function so that it converts dash/underscore delimited words into camel casing. 
+// The first word within the output should be capitalized only if the original word was capitalized 
+// (known as Upper Camel Case, also often referred to as Pascal case). The next words should be always 
+// capitalized.
+
+// Parameters: one string.
+    // words seperated by hyphens and underscores
+    // letters both capitals and lowercase
+// Return:
+    // same words, no spaces
+    // remove hyphens and underscores
+    // first letter of every word should be capitalized except first word unless
+    // unless the first word was capitalized in og string
+// Excample: toCamelCase('the-stealth-warrior') => 'theStealthWarrior'
+// Pseudo: 
+
+function toCamelCase(str){
+  let arr = arrayitize(str)
+  return arr
+          .map((word,index) => index === 0 ? word : `${word[0].toUpperCase()}${word.slice(1)}`)
+          .join('')
+}
+
+function arrayitize(str){
+  if (str.includes('-') && str.includes('_')) {   // if str has hyphens and underscores
+    let arr = str
+                .split('-')                       // 'the-stealth_warrior' => ['the', 'stealth_warrior']
+                .map(word => word.split('_'))     // ['the', 'stealth_warrior'] => ['the', ['stealth', 'warrior']] 
+    let arr0 = []
+    for (let i = 0; i < arr.length; i++){
+      arr0 = arr0.concat(arr[i])
+    }
+    return arr0
+  }
+  else if (str.includes('-')) {                   // else if str only has hyphens
+    return str.split('-')
+  }
+  else {                                          // else it only has underscores
+    return str.split('_')
+  }
+}
+console.log(toCamelCase('the-dragon_scroll-powers'))
