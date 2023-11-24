@@ -13,3 +13,5 @@ var moveZeros = function (arr) {
       ...(arr.filter(n => n === 0))
     ];
 }
+
+console.log(moveZeros(3800))
