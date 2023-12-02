@@ -5,3 +5,11 @@ function moveZeros(arr) {
             .filter(el => el !== 0)
             .concat(arr.filter(el => el === 0))
 }
+
+// not mine, but thought it was clean
+var moveZeros = function (arr) {
+    return [
+      ...(arr.filter(n => n !== 0)),
+      ...(arr.filter(n => n === 0))
+    ];
+}
