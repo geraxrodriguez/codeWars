@@ -49,7 +49,7 @@ function revrot(str, sz) {
     
     return chunks.join('')
   }
-// not mine but clean
+// not mine but clean, key difference is they only looped through str once. that's amazing
 function revrot(str, sz) {
     if (sz <= 0 || !str || sz > str.length) return '';    
       
