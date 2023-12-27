@@ -16,8 +16,7 @@
   // only ints in arrry
   // both negative and positive ints
 // R: Returning an int that appears and odd # of times
-// E:
-// P:
+
 function findOdd(A) {
     const counter = {};
     A.forEach(n => 
