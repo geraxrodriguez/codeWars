@@ -38,3 +38,14 @@ var containsDuplicate = function(nums) {
     let s = new Set(nums)
     return s.size !== nums.length
 };
+
+//a different, not-better way to solve this
+var containsDuplicate = function(nums) {
+    const numbers = [];
+    for (let i = 0; i < nums.length; i++) {
+        if (numbers.includes(nums[i])) {continue;}
+        numbers.push(nums[i])
+    }
+    return numbers.length !== nums.length
+}
+console.log(containsDuplicate([1,1,1,3,3,4,3,2,4,2]))
