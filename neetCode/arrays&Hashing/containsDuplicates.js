@@ -26,3 +26,11 @@ var containsDuplicate = function(nums) {
     let arr = [...new Set(nums)]
     return arr.length === nums.length ? false : true
 };
+
+// Could simplify by not having to turn the set back into array to get length
+// instead can just use .size method of Set, to get number of elements in our set
+// what really speeded up solution was doing '!=='
+var containsDuplicate = function(nums) {
+    let s = new Set(nums)
+    return s.size !== nums.length
+};
