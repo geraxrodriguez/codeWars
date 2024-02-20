@@ -9,40 +9,55 @@
 // Only the filled cells need to be validated according to the mentioned rules.
 
 // brute force way
+// https://www.youtube.com/watch?v=wjkKd5yBxRA
 var isValidSudoku = function(board) {
-    for (let i = 0; i < board.length; i++) {
+    // double for loop to access each individual cell
+    // checking horizontally
+    for (let i = 0; i < board.length; i++) { 
+        // set acts as container for elements present in board
         const set = new Set()
         for (let j = 0; j < board[i].length; j++) {
-            const cell = board[i][j];
-            if (cell === '.') continue;
-            if (set.has(cell)) return false;
-            set.add(cell)
-        }      
+            const num = board[i][j]
+            // means it's empty
+            if (num === '.') continue; 
+            // if set already has this number
+            if (set.has(num)) return false;
+            // else add our num to our set
+            set.add(num)
+        }
     }
 
-    for (let i = 0; i < board.length; i++) {
+    // double for loop to access each individual cell
+    // checking vertically
+    for (let i = 0; i < board.length; i++) { 
+        // set acts as container for elements present in board
         const set = new Set()
         for (let j = 0; j < board[i].length; j++) {
-            const cell = board[j][i];
-            if (cell === '.') continue;
-            if (set.has(cell)) return false;
-            set.add(cell)
-        }      
-    }    
+            const num = board[j][i]
+            // means it's empty
+            if (num === '.') continue; 
+            // if set already has this number
+            if (set.has(num)) return false;
+            // else add our num to our set
+            set.add(num)
+        }
+    }
 
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            
+
+            // creating set for our 3 x 3 mini grid
             const set = new Set()
             for (let k = 0; k < 3; k++) {
                 for (let l = 0; l < 3; l++) {
+                    // tricky part is how to get loop to go three, then next    column
                     const cell = board[3 * i + k][3 * j + l]
-                    if (cell === '.') continue;
+                    if (cell === '.') continue; 
                     if (set.has(cell)) return false;
                     set.add(cell)
                 }
             }
-        
+
         }
     }
 
