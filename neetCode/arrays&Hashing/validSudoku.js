@@ -8,6 +8,7 @@
 // A Sudoku board (partially filled) could be valid but is not necessarily solvable.
 // Only the filled cells need to be validated according to the mentioned rules.
 
+// brute force way
 var isValidSudoku = function(board) {
     for (let i = 0; i < board.length; i++) {
         const set = new Set()
