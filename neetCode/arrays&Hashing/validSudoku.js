@@ -63,3 +63,28 @@ var isValidSudoku = function(board) {
 
     return true
 };
+
+// Array of Sets Solution
+var isValidSudoku = function(board) {
+    const rows = [], columns = [], boxes = [];
+    // set for each row, column, and box
+    for (let i = 0; i < board.length; i++) {
+        rows.push(new Set())
+        columns.push(new Set())
+        boxes.push(new Set())
+    }
+
+    for (let i = 0; i < board.length; i++) { 
+        for (let j = 0; j < board[i].length; j++) {
+            const cell = board[i][j]
+            if (cell === '.') continue; 
+            const boxNum = 3 * Math.floor(i/3) + Math.floor(j/3)
+            if (rows[i].has(cell) || columns[j].has(cell) || boxes[boxNum].has(cell)) return false;
+            rows[i].add(cell)
+            columns[j].add(cell)
+            boxes[boxNum].add(cell)
+        }
+    }
+
+    return true
+};
