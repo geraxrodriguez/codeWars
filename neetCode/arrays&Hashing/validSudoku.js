@@ -88,3 +88,30 @@ var isValidSudoku = function(board) {
 
     return true
 };
+
+// creating unique string for cell in every row, col, and box
+var isValidSudoku = function(board) {
+    const set = new Set();
+
+    for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < board.length; j++) {
+            const cell = board[i][j]
+            if (cell === '.') continue; // if empty
+            const boxNum = 3 * Math.floor(i/3) + Math.floor(j/3)
+
+            const row = `Row ${i}, value ${cell}`
+            const col = `Col ${j} value ${cell}`
+            const box = `Box ${boxNum}, value ${cell}`
+
+            if (set.has(row) || set.has(col) || set.has(box)) 
+                return false
+
+            set.add(row)
+            set.add(col)
+            set.add(box)
+        }
+
+    }
+
+    return true
+};
