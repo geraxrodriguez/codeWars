@@ -35,3 +35,4 @@ function createPhoneNumber(numbers) {
 function createPhoneNumber(numbers) {
     return numbers.reduce((a,c) => a.replace('x', c), '(xxx) xxx-xxxx')
 }
+// added both of these today 
