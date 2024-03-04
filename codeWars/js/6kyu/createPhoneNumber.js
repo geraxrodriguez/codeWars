@@ -2,10 +2,36 @@
 
 // Example
 
+
+
+
+
+
+
+
+
+
+
+
+
 // createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // => returns "(123) 456-7890"
 // The returned format must be correct in order to complete this challenge.
 
 // Don't forget the space after the closing parentheses!
 function createPhoneNumber(numbers){
     return `(${numbers[0]}${numbers[1]}${numbers[2]}) ${numbers[3]}${numbers[4]}${numbers[5]}-${numbers[6]}${numbers[7]}${numbers[8]}${numbers[9]}`
+}
+
+function createPhoneNumber(numbers) {
+    // create format for phone number
+    let format = '(xxx) xxx-xxxx'
+    // loop through replacing x with numbers
+    for (let i = 0; i < numbers.length; i++) {
+        format = format.replace('x', numbers[i])
+    }
+    return format
+}
+
+function createPhoneNumber(numbers) {
+    return numbers.reduce((a,c) => a.replace('x', c), '(xxx) xxx-xxxx')
 }
