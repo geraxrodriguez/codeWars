@@ -20,26 +20,30 @@
 // 0 <= nums.length <= 105
 // -109 <= nums[i] <= 109
 var longestConsecutive = function(nums) {
-    if (nums.length === 0) {
-        return 0
-    }
+    if (nums.length === 0) { return 0 }
 
     nums.sort((a, b) => a - b);
 
     let count = 1;
     let max = 0;
+
+    // looks like don't matter if we start i = 0 or i = 1, but runs faster if we
+    // start i at 1
     for (let i = 1; i < nums.length; i++) {
-        const currNum = nums[i]
-        const prevNum = nums[i - 1]
-        if (currNum !== prevNum) {
-            if (prevNum + 1 === currNum) {
-                count++
-            }
-            else {
-                max = Math.max(max, count);
-                count = 1
-            }
+
+        // move to next num if previous is same num
+        if (nums[i] === nums[i-1]) { continue; }
+
+        // if previous num is one less than current num
+        if (nums[i] === nums[i-1] + 1) {
+            count++;
         }
+        // else the seq has ended, compare against max and reset count
+        else {
+            max = Math.max(max, count);
+            count = 1;
+        }
+
     }
 
     return Math.max(max, count)
