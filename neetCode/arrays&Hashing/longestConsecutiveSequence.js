@@ -48,3 +48,4 @@ var longestConsecutive = function(nums) {
 
     return Math.max(max, count)
 };
+// 3/10
