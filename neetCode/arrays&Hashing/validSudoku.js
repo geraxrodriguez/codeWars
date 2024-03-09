@@ -93,6 +93,8 @@ var isValidSudoku = function(board) {
 var isValidSudoku = function(board) {
     const set = new Set();
 
+    // i represents our rows
+    // j, our cols
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board.length; j++) {
             const cell = board[i][j]
@@ -115,3 +117,4 @@ var isValidSudoku = function(board) {
 
     return true
 };
+// Solved 3/10/24
