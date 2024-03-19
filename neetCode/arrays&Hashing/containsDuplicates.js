@@ -30,6 +30,10 @@ var containsDuplicate = function(nums) {
 // Could simplify by not having to turn the set back into array to get length
 // instead can just use .size method of Set, to get number of elements in our set
 // what really speeded up solution was doing '!=='
+
+//3/20/24: Re-solved w/out looking at solutions. Didn't even remember how I had solved before, but solution today was the one below. I'm a beast
+//avg run time 77ms, beats 77%
+//avg memory 62MB, beats 50%
 var containsDuplicate = function(nums) {
     let s = new Set(nums)
     return s.size !== nums.length
