@@ -58,3 +58,34 @@ var isPalindrome = function(s) {
     //we must combine each array into strings, lowercase, and see if they are equal
     return backward.join('').toLowerCase() == forward.join('').toLowerCase()
 };
+
+
+var isPalindrome = function(s) {
+    const forward = [];
+    const backward = [];
+
+    //loop through s forward
+    for (let i = 0; i < s.length; i++){
+        //if element doesn't fall between certain character code, skip
+        const forwardL = s[i]
+        const backwardL = s[s.length - i - 1]
+        const code1 = forwardL.charCodeAt()
+        const code2 = backwardL.charCodeAt()
+        if (checkCode(code1) ) {
+            forward.push(forwardL)
+        }
+        if (checkCode(code2)) {
+            backward.push(backwardL)
+        }
+    }
+
+    //we must combine each array into strings, lowercase, and see if they are equal
+    return backward.join('').toLowerCase() == forward.join('').toLowerCase()
+};
+
+function checkCode(n) {
+    if ( (48 <= n && n <= 57) || (65 <= n && n <= 90) || (97 <= n && n <= 122) ) {
+        return true
+    }
+    return false 
+}
