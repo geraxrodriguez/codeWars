@@ -57,10 +57,19 @@ var twoSum = function(nums, target) {
         let diff = target - nums[i]
         
         if (mp.has(diff)) {
-            console.log(mp)
             return [i, mp.get(diff)]
         }
         
         mp.set(nums[i], i)
     }
 };
+var twoSum = function(nums, target){
+    let mp = {};
+    for (let i = 0; i < nums.length; i++) {
+        const diff = target - nums[i];
+        if (diff in mp) {
+            return [i, mp[diff]]
+        }
+        mp[nums[i]] = i
+    }
+}
