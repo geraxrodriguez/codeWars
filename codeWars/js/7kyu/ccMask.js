@@ -23,5 +23,8 @@ function maskify(cc) {
       i < (cc.length - 4) ? s += '#' : s += cc[i];
     }
     return s
-  }
+}
+function maskify(cc) {
+    return cc.slice(-4).padStart(cc.length,'#')
+}
   
