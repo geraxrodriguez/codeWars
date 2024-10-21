@@ -13,4 +13,20 @@ function duplicateEncode(word){
     
     
     return parantheses;
+};
+
+function duplicateEncode(word) {
+  // loop through and create map. Props will be char, values will be count
+  // loop again and check if char's count is greater than 1
+  let counts = {};
+  for (let i = 0; i < word.length; i++) {
+    const char = word[i].toLowerCase();
+    counts[char] ? counts[char]++ : counts[char] = 1;
+  }
+  let newString = '';
+  for (let i = 0; i < word.length; i++) {
+    const char = word[i].toLowerCase();
+    newString += counts[char] > 1 ? ')' : '(';
+  };
+  return newString;
 }
