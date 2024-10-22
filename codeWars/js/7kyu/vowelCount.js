@@ -13,3 +13,15 @@ function getCount(str) {
 
     return numOfVowels;
 }
+
+function getCount(str) {
+  const vowels = ["a", "e", "i", "o", "u"];
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    const letter = str[i];
+    if (vowels.includes(letter)) {
+      count++;
+    };
+  }
+  return count;
+  }
